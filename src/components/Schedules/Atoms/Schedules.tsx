@@ -5,16 +5,23 @@ import SchedulDaysTab from "../Molecules/SchedulDaysTab";
 
 const Schedules = () => {
   return (
-    <Box sx={{ py: 10, bgcolor: "black", color: "white" }}>
+    <Box sx={{ py: { xs: 4, md: 10 }, bgcolor: "black", color: "white" }}>
       <Container>
         <Box display="flex" alignItems="center" justifyContent="center">
-          <Typography fontSize={"4rem"} color="blue">
+          <Typography
+            mr={1}
+            fontSize={{ xs: "1.5rem", md: "4rem" }}
+            color="#533483"
+            fontWeight={700}
+          >
             24H
           </Typography>
-          <Typography fontSize={"3rem"}>de transmision</Typography>
+          <Typography fontSize={{ xs: "1.5rem", md: "3rem" }}>
+            de transmision
+          </Typography>
         </Box>
         <Box
-          sx={{ py: 6 }}
+          sx={{ py: { xs: 3, md: 6 } }}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -22,7 +29,7 @@ const Schedules = () => {
           <Typography
             maxWidth={{ xs: "90%", md: "70%" }}
             textAlign="center"
-            fontSize={"1.5rem"}
+            fontSize={{ xs: "0.8rem", md: "1.5rem" }}
           >
             Disfruta de 24 horas de transmision seguidas, si anuncios y sin
             publicidad. Programas en directo todos los días, musica y contenido

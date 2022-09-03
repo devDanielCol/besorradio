@@ -63,6 +63,7 @@ const Menubar = () => {
               xs: "100vw",
               md: "auto",
             },
+            minWidth: 370,
           }}
           role="presentation"
         >
@@ -73,6 +74,7 @@ const Menubar = () => {
             pl={3}
             alignItems="center"
             justifyContent="space-between"
+            sx={{ position: "sticky", top: 0, background: "black", zIndex: 2 }}
           >
             <Typography fontSize={12}>Navegación</Typography>
             <IconButton onClick={handleOpenBar}>

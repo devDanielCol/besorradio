@@ -16,9 +16,10 @@ const BannerTop = () => {
   return (
     <Box
       sx={{
-        background: "linear-gradient(45deg, black, #360084, black);",
+        background: "linear-gradient(45deg, black, #533483, black);",
         color: "white",
         p: 0.5,
+        minWidth: 370,
       }}
       p={0}
       m={0}

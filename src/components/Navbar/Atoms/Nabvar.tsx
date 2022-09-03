@@ -9,7 +9,7 @@ import Menubar from "../../Menubar/Atoms/Menubar";
 const Navbar = () => {
   return (
     <>
-      <AppBar position="sticky" sx={{ top: 0 }}>
+      <AppBar position="sticky" sx={{ top: 0, minWidth: 375 }}>
         <Toolbar disableGutters>
           <Box
             width={"100%"}

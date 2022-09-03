@@ -1,6 +1,9 @@
 import * as React from "react";
-import { Card, SxProps } from "@mui/material";
+import { SxProps, Typography, IconButton } from "@mui/material";
 import { Box } from "@mui/system";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
+import AutorenewRoundedIcon from "@mui/icons-material/AutorenewRounded";
 
 const ProgramCard = () => {
   const [rotate, setRotate] = React.useState<boolean>(false);
@@ -8,12 +11,15 @@ const ProgramCard = () => {
   const rotateBack = rotate ? "360deg" : "180deg";
   const sxCard: SxProps = {
     position: "relative",
-    margin: 1,
-    height: 80,
+    width: "100%",
+    minWidth: 155,
+    height: {
+      xs: 210,
+      md: 250,
+    },
     border: 0,
     boxShadow: 0,
     backgroundColor: "transparent",
-    transform: `perspective(900px)`,
   };
 
   const sxFace: SxProps = {
@@ -25,7 +31,13 @@ const ProgramCard = () => {
     borderRadius: 3,
     backfaceVisibility: "hidden",
     transition: "all .5s cubic-bezier(0.1, 0.57, 0.45, 0.94)",
-    backgroundColor: "red",
+    backgroundColor: rotate ? "#16213E" : "#533483",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    color: "white",
+    overflow: "hidden",
   };
 
   const sxFront: SxProps = {
@@ -40,14 +52,80 @@ const ProgramCard = () => {
   };
 
   return (
-    <Card type-card="program" onClick={handleRotate} sx={sxCard}>
+    <Box type-card="program" sx={sxCard}>
       <Box face-type="front" component="div" sx={{ ...sxFront, ...sxFace }}>
-        este es el front
+        <WbSunnyIcon
+          sx={{
+            width: {
+              xs: 38,
+              md: 50,
+            },
+            height: {
+              xs: 38,
+              md: 50,
+            },
+            mb: 2,
+          }}
+        />
+        <Typography
+          onClick={handleRotate}
+          sx={{
+            fontSize: {
+              xs: "1rem",
+              md: "1.8rem",
+            },
+            textAlign: "center",
+            maxWidth: "85%",
+            cursor: "pointer",
+            "&:hover": {
+              textDecoration: "underline",
+            },
+          }}
+        >
+          Una luz en las naciones
+        </Typography>
       </Box>
       <Box face-type="back" component="div" sx={{ ...sxBack, ...sxFace }}>
-        este es el back
+        <Typography
+          fontSize={{
+            xs: 10,
+            md: 12,
+          }}
+          mb={1}
+        >
+          ¿Qué es?
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: {
+              xs: 12,
+              md: 14,
+            },
+            textAlign: "center",
+            maxWidth: "85%",
+          }}
+        >
+          Es un programa en el cual se habla sobre la importancia de predicar y
+          extender el mensaje de Dios a todo el mundo.
+        </Typography>
+        <Box
+          mt={{
+            xs: 1,
+            md: 2,
+          }}
+        >
+          <IconButton>
+            <VisibilityRoundedIcon />
+          </IconButton>
+        </Box>
       </Box>
-    </Card>
+      <IconButton
+        sx={{ position: "relative", top: 1, left: 1 }}
+        onClick={handleRotate}
+      >
+        <AutorenewRoundedIcon />
+      </IconButton>
+    </Box>
   );
 };
 

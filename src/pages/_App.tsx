@@ -4,6 +4,7 @@ import Carrousell from "../components/Carrousell/Atoms/Carrousell";
 import Header from "../layout/Header/Index";
 import Schedules from "../components/Schedules/Atoms/Schedules";
 import Programs from "../components/Programs/Atoms/Programs";
+import BannerStreaming from "../components/BannerStreaming/BannerStreaming";
 
 const App = () => {
   const darkTheme = createTheme({
@@ -18,7 +19,7 @@ const App = () => {
       <Carrousell></Carrousell>
       <Schedules />
       <Programs />
-      <div style={{ height: "200vh", width: "100%" }}></div>
+      <BannerStreaming />
     </ThemeProvider>
   );
 };

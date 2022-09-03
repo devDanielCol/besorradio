@@ -1,10 +1,7 @@
 import * as React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import Carrousell from "../components/Carrousell/Atoms/Carrousell";
 import Header from "../layout/Header/Index";
-import Schedules from "../components/Schedules/Atoms/Schedules";
-import Programs from "../components/Programs/Atoms/Programs";
-import BannerStreaming from "../components/BannerStreaming/BannerStreaming";
+import HomePage from "./Home";
 
 const App = () => {
   const darkTheme = createTheme({
@@ -15,11 +12,8 @@ const App = () => {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <Header></Header>
-      <Carrousell></Carrousell>
-      <Schedules />
-      <Programs />
-      <BannerStreaming />
+      <Header />
+      <HomePage />
     </ThemeProvider>
   );
 };

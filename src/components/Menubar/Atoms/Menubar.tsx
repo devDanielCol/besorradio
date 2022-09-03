@@ -49,7 +49,7 @@ const Menubar = () => {
   return (
     <Box display="flex" alignItems="center" justifyContent="end">
       <IconButton onClick={handleOpenBar}>
-        <MenuRoundedIcon />
+        <MenuRoundedIcon sx={{ width: 40, height: 40 }} />
       </IconButton>
       <Drawer
         sx={{ backdropFilter: "blur(4px)" }}

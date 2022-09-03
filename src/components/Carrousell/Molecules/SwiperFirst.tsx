@@ -2,6 +2,11 @@ import * as React from "react";
 import { Box, IconButton, SxProps, Typography } from "@mui/material";
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
 import PauseCircleIcon from "@mui/icons-material/PauseCircle";
+import { useSelector, useDispatch } from "react-redux";
+import { IControls, play } from "../../../redux/reducers/controlls";
+interface ISelector {
+  controllerAudioStream: IControls;
+}
 
 const sxIcon: SxProps = {
   width: {
@@ -15,10 +20,13 @@ const sxIcon: SxProps = {
 };
 
 const SwiperFirst = () => {
-  const [play, setPlay] = React.useState<boolean>(false);
+  const dispatch = useDispatch();
+  const paused: boolean = useSelector(
+    ({ controllerAudioStream }: ISelector) => controllerAudioStream.play
+  );
 
   const playHandler = () => {
-    setPlay(!play);
+    dispatch(play());
   };
 
   return (
@@ -48,7 +56,7 @@ const SwiperFirst = () => {
       </Box>
       <Box display="flex" justifyContent="center" alignItems="center">
         <IconButton onClick={playHandler}>
-          {play ? (
+          {paused ? (
             <PauseCircleIcon sx={sxIcon} />
           ) : (
             <PlayCircleRoundedIcon sx={sxIcon} />

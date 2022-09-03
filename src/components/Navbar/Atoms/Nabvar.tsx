@@ -2,7 +2,6 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { Box } from "@mui/system";
-import Controls from "../Molecules/Controls";
 import Legend from "../Molecules/Legend";
 import Menubar from "../../Menubar/Atoms/Menubar";
 
@@ -17,19 +16,11 @@ const Navbar = () => {
             sx={{
               gridTemplateColumns: {
                 xs: "repeat(2, 1fr)",
-                md: "repeat(3, 1fr)",
+                md: "repeat(2, 1fr)",
               },
             }}
           >
             <Legend />
-            <Controls
-              sx={{
-                display: {
-                  xs: "none",
-                  md: "flex",
-                },
-              }}
-            />
             <Menubar />
           </Box>
         </Toolbar>

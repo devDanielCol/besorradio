@@ -13,13 +13,13 @@ const Controls = ({ sx }: IProps) => {
     <Box sx={sx} alignItems="center" justifyContent="center">
       <Box>
         <IconButton>
-          <FastRewindRoundedIcon />
+          <FastRewindRoundedIcon sx={{ width: 40, height: 40 }} />
         </IconButton>
         <IconButton>
-          <PlayArrowRoundedIcon />
+          <PlayArrowRoundedIcon sx={{ width: 50, height: 50 }} />
         </IconButton>
         <IconButton>
-          <FastForwardRoundedIcon />
+          <FastForwardRoundedIcon sx={{ width: 40, height: 40 }} />
         </IconButton>
       </Box>
     </Box>

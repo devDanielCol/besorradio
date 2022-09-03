@@ -12,6 +12,12 @@ import FastRewindRounded from "@mui/icons-material/FastRewindRounded";
 import VolumeUpRounded from "@mui/icons-material/VolumeUpRounded";
 import VolumeDownRounded from "@mui/icons-material/VolumeDownRounded";
 import RadioIcon from "@mui/icons-material/Radio";
+import { useSelector, useDispatch } from "react-redux";
+import { IControls, play } from "../../../redux/reducers/controlls";
+
+interface ISelector {
+  controllerAudioStream: IControls;
+}
 
 const Widget = styled("div")(() => ({
   padding: 16,
@@ -48,15 +54,22 @@ export default function MusicPlayerSlider() {
   const theme = useTheme();
   const duration = 200; // seconds
   const [position, setPosition] = React.useState(32);
-  const [paused, setPaused] = React.useState(false);
+
+  const dispatch = useDispatch();
+  const paused: boolean = useSelector(
+    ({ controllerAudioStream }: ISelector) => controllerAudioStream.play
+  );
+
   function formatDuration(value: number) {
     const minute = Math.floor(value / 60);
     const secondLeft = value - minute * 60;
     return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
   }
+
   const mainIconColor = theme.palette.mode === "dark" ? "#fff" : "#000";
   const lightIconColor =
     theme.palette.mode === "dark" ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.4)";
+
   return (
     <Box sx={{ width: "100%", overflow: "hidden" }}>
       <Widget>
@@ -143,15 +156,17 @@ export default function MusicPlayerSlider() {
           </IconButton>
           <IconButton
             aria-label={paused ? "play" : "pause"}
-            onClick={() => setPaused(!paused)}
+            onClick={() => {
+              dispatch(play());
+            }}
           >
             {paused ? (
-              <PlayArrowRounded
+              <PauseRounded
                 sx={{ fontSize: "3rem" }}
                 htmlColor={mainIconColor}
               />
             ) : (
-              <PauseRounded
+              <PlayArrowRounded
                 sx={{ fontSize: "3rem" }}
                 htmlColor={mainIconColor}
               />

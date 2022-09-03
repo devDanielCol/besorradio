@@ -17,6 +17,7 @@ const sxIcon: SxProps = {
     xs: 50,
     md: 100,
   },
+  color: "white",
 };
 
 const SwiperFirst = () => {

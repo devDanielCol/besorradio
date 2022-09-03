@@ -1,7 +1,6 @@
 import * as React from "react";
 import Schedules from "../../components/Schedules/Atoms/Schedules";
 import Programs from "../../components/Programs/Atoms/Programs";
-import BannerStreaming from "../../components/BannerStreaming/BannerStreaming";
 import Carrousell from "../../components/Carrousell/Atoms/Carrousell";
 
 const HomePage = () => {
@@ -10,7 +9,6 @@ const HomePage = () => {
       <Carrousell />
       <Schedules />
       <Programs />
-      <BannerStreaming />
     </>
   );
 };

@@ -5,13 +5,13 @@ import SchedulDaysTab from "../Molecules/SchedulDaysTab";
 
 const Schedules = () => {
   return (
-    <Box sx={{ py: { xs: 4, md: 10 }, bgcolor: "black", color: "white" }}>
+    <Box sx={{ py: { xs: 4, md: 10 } }}>
       <Container>
         <Box display="flex" alignItems="center" justifyContent="center">
           <Typography
             mr={1}
             fontSize={{ xs: "1.5rem", md: "4rem" }}
-            color="#533483"
+            color="secondary"
             fontWeight={700}
           >
             24H

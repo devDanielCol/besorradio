@@ -9,24 +9,23 @@ const Programs = () => {
       <Box
         sx={{
           py: { xs: 1.5, md: 3 },
-          background: "linear-gradient(45deg, black, #533483, black);",
         }}
       >
         <Container>
           <Typography
-            color="white"
             textAlign="center"
             component="h2"
             fontSize={{
               xs: "1rem",
-              md: "2rem",
+              md: "2.5rem",
             }}
+            fontWeight={700}
           >
-            Programas
+            Nuestras emisiones en directo
           </Typography>
         </Container>
       </Box>
-      <Box sx={{ py: 3, background: "black" }}>
+      <Box sx={{ py: 3 }}>
         <Container>
           <Box
             sx={{

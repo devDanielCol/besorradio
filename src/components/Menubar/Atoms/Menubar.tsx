@@ -11,6 +11,7 @@ import CategoryIcon from "@mui/icons-material/Category";
 
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 import SocialNetAccordion from "../Molecules/SocialNetAccordion";
+import ThemeControl from "../Molecules/ThemeControl";
 
 const navigationItems = [
   {
@@ -74,7 +75,7 @@ const Menubar = () => {
             pl={3}
             alignItems="center"
             justifyContent="space-between"
-            sx={{ position: "sticky", top: 0, background: "black", zIndex: 2 }}
+            sx={{ position: "sticky", top: 0, zIndex: 2 }}
           >
             <Typography fontSize={12}>Navegación</Typography>
             <IconButton onClick={handleOpenBar}>
@@ -82,6 +83,8 @@ const Menubar = () => {
             </IconButton>
           </Box>
           <Account />
+          <Divider />
+          <ThemeControl />
           <Divider />
           <MusicPlayerSlider />
           <Divider />

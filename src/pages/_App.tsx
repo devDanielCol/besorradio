@@ -1,19 +1,31 @@
 import * as React from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import Header from "../layout/Header/Index";
 import HomePage from "./Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "../layout/Footer";
+import darkThemeOption from "../themes/darkmode";
+import lightThemeOptions from "../themes/lightmode";
+import { useSelector } from "react-redux";
+import { IThemeControls } from "../redux/reducers/theme";
+
+interface ISelector {
+  controllerTheme: IThemeControls;
+}
 
 const App = () => {
-  const darkTheme = createTheme({
-    palette: {
-      mode: "dark",
-    },
-  });
+  const mode: string = useSelector(
+    ({ controllerTheme }: ISelector) => controllerTheme.theme
+  );
+  const themes = {
+    dark: darkThemeOption,
+    light: lightThemeOptions,
+  }[mode];
+
+  const theme = createTheme(themes);
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Header />
       <BrowserRouter>
         <Routes>
@@ -21,7 +33,6 @@ const App = () => {
           <Route path="*" element={"Hola planeta"} />
         </Routes>
       </BrowserRouter>
-      <Footer />
     </ThemeProvider>
   );
 };

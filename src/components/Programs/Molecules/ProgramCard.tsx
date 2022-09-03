@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SxProps, Typography, IconButton } from "@mui/material";
+import { SxProps, Typography, IconButton, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
@@ -31,12 +31,10 @@ const ProgramCard = () => {
     borderRadius: 3,
     backfaceVisibility: "hidden",
     transition: "all .5s cubic-bezier(0.1, 0.57, 0.45, 0.94)",
-    backgroundColor: rotate ? "#16213E" : "#533483",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    color: "white",
     overflow: "hidden",
   };
 
@@ -53,7 +51,12 @@ const ProgramCard = () => {
 
   return (
     <Box type-card="program" sx={sxCard}>
-      <Box face-type="front" component="div" sx={{ ...sxFront, ...sxFace }}>
+      <Paper
+        elevation={3}
+        face-type="front"
+        component="div"
+        sx={{ ...sxFront, ...sxFace }}
+      >
         <WbSunnyIcon
           sx={{
             width: {
@@ -84,8 +87,13 @@ const ProgramCard = () => {
         >
           Una luz en las naciones
         </Typography>
-      </Box>
-      <Box face-type="back" component="div" sx={{ ...sxBack, ...sxFace }}>
+      </Paper>
+      <Paper
+        elevation={3}
+        face-type="back"
+        component="div"
+        sx={{ ...sxBack, ...sxFace }}
+      >
         <Typography
           fontSize={{
             xs: 10,
@@ -118,7 +126,7 @@ const ProgramCard = () => {
             <VisibilityRoundedIcon />
           </IconButton>
         </Box>
-      </Box>
+      </Paper>
       <IconButton
         sx={{ position: "relative", top: 1, left: 1 }}
         onClick={handleRotate}

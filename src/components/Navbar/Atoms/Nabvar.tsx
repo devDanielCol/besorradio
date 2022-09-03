@@ -33,14 +33,6 @@ const Navbar = () => {
             <Menubar />
           </Box>
         </Toolbar>
-        <Controls
-          sx={{
-            display: {
-              xs: "flex",
-              md: "none",
-            },
-          }}
-        />
       </AppBar>
     </>
   );

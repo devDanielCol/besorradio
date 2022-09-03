@@ -7,7 +7,7 @@ import Carrousell from "../../components/Carrousell/Atoms/Carrousell";
 const HomePage = () => {
   return (
     <>
-      <Carrousell></Carrousell>
+      <Carrousell />
       <Schedules />
       <Programs />
       <BannerStreaming />

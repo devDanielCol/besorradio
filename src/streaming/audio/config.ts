@@ -1,10 +1,10 @@
 export default {
   radio: {
-    source: process.env.REACT_APP_SETREAMING,
-    source2: process.env.REACT_APP_SETREAMING_2,
+    source: process.env.REACT_APP_STREAMING,
+    crossOrigin: process.env.REACT_APP_STREAMING_ORIGIN,
   },
   soundsCloud: {
     source: undefined,
-    source2: undefined,
+    crossOrigin: undefined,
   },
 };

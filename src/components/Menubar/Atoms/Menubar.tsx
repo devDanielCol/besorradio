@@ -3,7 +3,7 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import { Divider, Drawer, IconButton, List, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import MenubarOption from "../Molecules/MenubarOption";
-import MusicPlayerSlider from "../Molecules/Player";
+import MusicPlayerSlider from "../../AudioPlayer/Atoms/Player";
 import Account from "../Molecules/Account";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import OnlinePredictionIcon from "@mui/icons-material/OnlinePrediction";

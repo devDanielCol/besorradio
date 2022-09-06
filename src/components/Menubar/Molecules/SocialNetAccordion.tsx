@@ -59,6 +59,7 @@ const SocialNetAccordion = () => {
             <Typography
               component="a"
               href={url}
+              target="_blank"
               key={index}
               color={theme.palette.secondary.main}
             >

@@ -32,12 +32,15 @@ const SwiperFirst = () => {
 
   return (
     <Box
-      sx={{ height: { md: 400, xs: 200 } }}
+      sx={{
+        height: { md: 400, xs: 200 },
+      }}
       p={3}
       pl={{ xs: 6, md: 15 }}
       color="white"
       display="grid"
       gridTemplateColumns="repeat(2,1fr)"
+      alignItems={"center"}
     >
       <Box>
         <Typography

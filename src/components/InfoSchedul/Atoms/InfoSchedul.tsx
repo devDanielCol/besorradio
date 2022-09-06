@@ -1,11 +1,10 @@
 import * as React from "react";
 import { Container, Box } from "@mui/system";
 import { Typography } from "@mui/material";
-import SchedulDaysTab from "../Molecules/SchedulDaysTab";
 
 const Schedules = () => {
   return (
-    <Box sx={{ py: { xs: 4, md: 10 } }}>
+    <Box sx={{ pt: { xs: 4, md: 10 } }}>
       <Container>
         <Box display="flex" alignItems="center" justifyContent="center">
           <Typography
@@ -35,9 +34,6 @@ const Schedules = () => {
             publicidad. Programas en directo todos los días, musica y contenido
             edificante para tu vida.
           </Typography>
-        </Box>
-        <Box display="flex" alignItems="center" justifyContent="center">
-          <SchedulDaysTab></SchedulDaysTab>
         </Box>
       </Container>
     </Box>

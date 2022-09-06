@@ -7,6 +7,7 @@ const Programs = () => {
   return (
     <>
       <Box
+        id="programs"
         sx={{
           py: { xs: 1.5, md: 3 },
         }}
@@ -16,7 +17,7 @@ const Programs = () => {
             textAlign="center"
             component="h2"
             fontSize={{
-              xs: "1rem",
+              xs: "1.3rem",
               md: "2.5rem",
             }}
             fontWeight={700}

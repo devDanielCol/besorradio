@@ -12,24 +12,32 @@ import CategoryIcon from "@mui/icons-material/Category";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 import SocialNetAccordion from "../Molecules/SocialNetAccordion";
 import ThemeControl from "../Molecules/ThemeControl";
+import { useTheme } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 
 const navigationItems = [
   {
     name: "Programas",
     icon: <CategoryIcon />,
+    url: "/#programs",
   },
   {
     name: "Emision en directo",
     icon: <OnlinePredictionIcon />,
+    url: "/radio/streaming",
   },
   {
     name: "Contacto",
     icon: <ContactPageIcon />,
+    url: "/contact",
   },
 ];
 
 const Menubar = () => {
   const [open, setOpen] = React.useState<boolean>(false);
+  const theme = useTheme();
+  const palette = theme.palette;
+  const navigator = useNavigate();
 
   const handleOpenBar = () => {
     setOpen(!open);
@@ -75,29 +83,41 @@ const Menubar = () => {
             pl={3}
             alignItems="center"
             justifyContent="space-between"
-            sx={{ position: "sticky", top: 0, zIndex: 2 }}
+            sx={{
+              position: "sticky",
+              top: 0,
+              zIndex: 2,
+              backgroundColor: palette.primary.main,
+              boxShadow: 2,
+            }}
           >
             <Typography fontSize={12}>Navegación</Typography>
             <IconButton onClick={handleOpenBar}>
               <CloseRoundedIcon />
             </IconButton>
           </Box>
-          <Account />
+          <Box onClick={handleOpenBar}>
+            <Account />
+          </Box>
           <Divider />
           <ThemeControl />
           <Divider />
           <MusicPlayerSlider />
           <Divider />
           <List sx={{ py: 3 }}>
-            {navigationItems.map(({ name, icon }, index) => (
-              <div key={index} onClick={handleOpenBar}>
+            {navigationItems.map(({ name, icon, url }, index) => (
+              <div
+                key={index}
+                onClick={() => {
+                  handleOpenBar();
+                  navigator(url);
+                }}
+              >
                 <MenubarOption text={name} icon={icon} />
               </div>
             ))}
           </List>
-          <Divider />
           <SocialNetAccordion />
-          <Divider />
         </Box>
       </Drawer>
     </Box>

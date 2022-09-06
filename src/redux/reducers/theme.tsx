@@ -5,7 +5,7 @@ export interface IThemeControls {
 }
 
 const initialState: IThemeControls = {
-  theme: "light",
+  theme: "dark",
 };
 
 export const controllerTheme = createSlice({

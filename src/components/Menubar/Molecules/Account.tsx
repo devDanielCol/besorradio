@@ -2,6 +2,7 @@ import * as React from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Avatar, Box, Typography } from "@mui/material";
 import stringToColor from "../../../utils/helpers/stringToColor";
+import { useNavigate } from "react-router-dom";
 
 interface IClientAccunt {
   name: string;
@@ -16,6 +17,8 @@ const Account = () => {
       "https://cdn.pixabay.com/photo/2022/08/13/09/05/lion-7383228_960_720.jpg",
   };
 
+  const navigate = useNavigate();
+
   const AvatarProps = (name: string) => {
     return {
       sx: {
@@ -28,7 +31,16 @@ const Account = () => {
   return (
     <>
       {onSession ? (
-        <Box display="flex" flexDirection="row" p={2} alignItems="center">
+        <Box
+          onClick={() => {
+            navigate("/profile");
+          }}
+          display="flex"
+          flexDirection="row"
+          p={2}
+          alignItems="center"
+          sx={{ cursor: "pointer" }}
+        >
           {profileImg ? (
             <Avatar src={profileImg} alt={name} />
           ) : (
@@ -37,7 +49,16 @@ const Account = () => {
           <Typography ml={1}>{name}</Typography>
         </Box>
       ) : (
-        <Box display="flex" flexDirection="row" p={2} alignItems="center">
+        <Box
+          onClick={() => {
+            navigate("/login");
+          }}
+          display="flex"
+          flexDirection="row"
+          p={2}
+          alignItems="center"
+          sx={{ cursor: "pointer" }}
+        >
           <AccountCircleIcon sx={{ width: 45, height: 45 }} />
           <Typography ml={1}>Iniciar sesion</Typography>
         </Box>

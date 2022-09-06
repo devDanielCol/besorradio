@@ -1,7 +1,8 @@
 import * as React from "react";
-import Schedules from "../../components/Schedules/Atoms/Schedules";
+import Schedules from "../../components/InfoSchedul/Atoms/InfoSchedul";
 import Programs from "../../components/Programs/Atoms/Programs";
 import Carrousell from "../../components/Carrousell/Atoms/Carrousell";
+import EndPageBanner from "../../components/EndPageBanner/EndPageBanner";
 
 const HomePage = () => {
   return (
@@ -9,6 +10,7 @@ const HomePage = () => {
       <Carrousell />
       <Schedules />
       <Programs />
+      <EndPageBanner />
     </>
   );
 };

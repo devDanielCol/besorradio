@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import { Parallax, Pagination, Navigation } from "swiper";
 import { Box } from "@mui/material";
 import SwiperFirst from "../Molecules/SwiperFirst";
+import SwiperSecond from "../Molecules/SwiperSecond";
 
 const Carrousell = () => {
   return (
@@ -16,9 +17,8 @@ const Carrousell = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
         modules={[Parallax, Pagination, Navigation]}
-        className="mySwiper"
+        style={{ color: "white" }}
       >
         <Box
           slot="container-start"
@@ -34,11 +34,13 @@ const Carrousell = () => {
           }}
           data-swiper-parallax="-23%"
         ></Box>
-        {[0, 1].map((_, index) => (
-          <SwiperSlide key={index}>
-            <SwiperFirst />
-          </SwiperSlide>
-        ))}
+
+        <SwiperSlide>
+          <SwiperFirst />
+        </SwiperSlide>
+        <SwiperSlide>
+          <SwiperSecond />
+        </SwiperSlide>
       </Swiper>
     </>
   );

@@ -8,31 +8,38 @@ import {
   AccordionDetails,
   AccordionSummary,
   List,
+  Typography,
 } from "@mui/material";
 import MenubarOption from "./MenubarOption";
+import { useTheme } from "@mui/material/styles";
 
 const socialNetworks = [
   {
     name: "Facebook",
     icon: <FacebookOutlinedIcon />,
+    url: "https://www.facebook.com/Besorradio24hr",
   },
   {
     name: "YouTube",
     icon: <YouTubeIcon />,
+    url: "",
   },
   {
     name: "Instagram",
     icon: <InstagramIcon />,
+    url: "https://www.instagram.com/besorradio/?hl=es",
   },
   {
     name: "Compartir",
     icon: <ShareIcon />,
+    url: "",
   },
 ];
 
 const SocialNetAccordion = () => {
   const [accordionOptions, setAccordionOptions] =
     React.useState<boolean>(false);
+  const theme = useTheme();
 
   const handlerAccordion = () => {
     setAccordionOptions(!accordionOptions);
@@ -48,8 +55,15 @@ const SocialNetAccordion = () => {
       </AccordionSummary>
       <AccordionDetails sx={{ m: 0, p: 0 }}>
         <List>
-          {socialNetworks.map(({ name, icon }, index) => (
-            <MenubarOption key={index} text={name} icon={icon} />
+          {socialNetworks.map(({ name, icon, url }, index) => (
+            <Typography
+              component="a"
+              href={url}
+              key={index}
+              color={theme.palette.secondary.main}
+            >
+              <MenubarOption text={name} icon={icon} />
+            </Typography>
           ))}
         </List>
       </AccordionDetails>

@@ -128,7 +128,7 @@ const ProgramCard = () => {
         </Box>
       </Paper>
       <IconButton
-        sx={{ position: "relative", top: 1, left: 1 }}
+        sx={{ position: "relative", top: 1, left: 1, zIndex: 2 }}
         onClick={handleRotate}
       >
         <AutorenewRoundedIcon />

@@ -3,15 +3,11 @@ import { IControls } from "../../../redux/reducers/controlls";
 import { useSelector } from "react-redux";
 import { audio, createAudioContext } from "./audioCTX";
 
-interface IProps {
-  children: React.ReactElement;
-}
-
 interface ISelector {
   controllerAudioStream: IControls;
 }
 
-const AudioStreaming = (props: IProps) => {
+const AudioStreaming = () => {
   const AudioElement = audio;
 
   const { play, volume } = useSelector(
@@ -53,7 +49,7 @@ const AudioStreaming = (props: IProps) => {
     }
   }, [volume]);
 
-  return <>{props.children}</>;
+  return <></>;
 };
 
 export default AudioStreaming;

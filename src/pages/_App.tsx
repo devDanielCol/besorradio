@@ -30,22 +30,24 @@ const App = () => {
     light: lightThemeOptions,
   }[mode];
 
+  console.log("se cargo la pagina");
+  console.log(process.env.REACT_APP_STREAMING);
+
   const theme = createTheme(themes);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AudioStreaming>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<SignIn />} />
-            <Route path="*" element={<NotFound404Page />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </AudioStreaming>
+      <AudioStreaming />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<SignIn />} />
+          <Route path="*" element={<NotFound404Page />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </ThemeProvider>
   );
 };

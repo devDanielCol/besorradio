@@ -1,11 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+  getLocalStorage,
+  setLocalStorage,
+} from "../../utils/helpers/storagEncrypt";
 
 export interface IThemeControls {
-  theme: "dark" | "light";
+  theme: string;
 }
 
 const initialState: IThemeControls = {
-  theme: "dark",
+  theme: String(getLocalStorage("mode") || "dark"),
 };
 
 export const controllerTheme = createSlice({
@@ -14,6 +18,7 @@ export const controllerTheme = createSlice({
   reducers: {
     changeTheme: (state, action: PayloadAction<"dark" | "light">) => {
       state.theme = action.payload;
+      setLocalStorage("mode", state.theme);
     },
   },
 });

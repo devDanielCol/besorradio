@@ -10,7 +10,6 @@ import { IThemeControls } from "../redux/reducers/theme";
 import Footer from "../layout/Footer";
 import NotFound404Page from "./404";
 import SignIn from "../components/LogIn/Atoms/Login";
-import AudioStreaming from "../components/Streaming/Audio";
 
 interface ISelector {
   controllerTheme: IThemeControls;

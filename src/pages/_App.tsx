@@ -11,7 +11,6 @@ import Footer from "../layout/Footer";
 import NotFound404Page from "./404";
 import SignIn from "../components/LogIn/Atoms/Login";
 import { IControls } from "../redux/reducers/controlls";
-import AudioStreaming from "../streaming/audio/source/AudioStreaming";
 
 interface ISelector {
   controllerTheme: IThemeControls;
@@ -30,15 +29,11 @@ const App = () => {
     light: lightThemeOptions,
   }[mode];
 
-  console.log("se cargo la pagina");
-  console.log(process.env.REACT_APP_STREAMING);
-
   const theme = createTheme(themes);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AudioStreaming />
       <BrowserRouter>
         <Header />
         <Routes>

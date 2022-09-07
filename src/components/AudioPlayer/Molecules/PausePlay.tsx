@@ -3,11 +3,15 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import PauseRounded from "@mui/icons-material/PauseRounded";
 import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
-import FastForwardRounded from "@mui/icons-material/FastForwardRounded";
-import FastRewindRounded from "@mui/icons-material/FastRewindRounded";
 import { useTheme } from "@mui/material/styles";
-import { IControls, play as onPlay } from "../../../redux/reducers/controlls";
+import {
+  IControls,
+  play as onPlay,
+  stop,
+} from "../../../redux/reducers/controlls";
 import { useSelector, useDispatch } from "react-redux";
+import StopCircleIcon from "@mui/icons-material/StopCircle";
+import ReplayIcon from "@mui/icons-material/Replay";
 
 interface ISelector {
   controllerAudioStream: IControls;
@@ -33,9 +37,6 @@ const PausePlay = () => {
           mt: -1,
         }}
       >
-        <IconButton aria-label="previous song">
-          <FastRewindRounded fontSize="large" htmlColor={mainIconColor} />
-        </IconButton>
         <IconButton
           aria-label={paused ? "play" : "pause"}
           onClick={() => {
@@ -51,8 +52,17 @@ const PausePlay = () => {
             />
           )}
         </IconButton>
-        <IconButton aria-label="next song">
-          <FastForwardRounded fontSize="large" htmlColor={mainIconColor} />
+        <IconButton aria-label="reload streaming">
+          <ReplayIcon fontSize="large" htmlColor={mainIconColor} />
+        </IconButton>
+        <IconButton
+          onClick={() => {
+            dispatch(stop());
+            dispatch(onPlay());
+          }}
+          aria-label="stop streaming"
+        >
+          <StopCircleIcon fontSize="large" htmlColor={mainIconColor} />
         </IconButton>
       </Box>
     </>

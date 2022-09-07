@@ -3,7 +3,6 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 
 import AudioData from "../Molecules/AudioData";
-import AdvanceDalay from "../Molecules/AdvanceDelay";
 import PausePlay from "../Molecules/PausePlay";
 import Volume from "../Molecules/Volume";
 
@@ -23,7 +22,6 @@ export default function MusicPlayerSlider() {
     <Box sx={{ width: "100%", overflow: "hidden" }}>
       <Widget>
         <AudioData />
-        <AdvanceDalay />
         <PausePlay />
         <Volume />
       </Widget>

@@ -1,15 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+  getLocalStorage,
+  setLocalStorage,
+} from "../../utils/helpers/storagEncrypt";
+
+const initVol = Number(getLocalStorage("volume"));
 
 export interface IControls {
   play: boolean;
   volume: number;
   currentTime: number;
+  stop: boolean;
 }
 
 const initialState: IControls = {
   play: false,
-  volume: 0.5,
+  volume: initVol || 0.5,
   currentTime: 0,
+  stop: false,
 };
 
 export const controllerAudioStream = createSlice({
@@ -18,9 +26,7 @@ export const controllerAudioStream = createSlice({
   reducers: {
     volume: (state, action: PayloadAction<number>) => {
       state.volume = action.payload;
-    },
-    resetVolume: (state) => {
-      state.volume = initialState.volume;
+      setLocalStorage("volume", String(state.volume));
     },
     play: (state) => {
       state.play = !state.play;
@@ -28,10 +34,12 @@ export const controllerAudioStream = createSlice({
     setTime: (state, action: PayloadAction<number>) => {
       state.currentTime = action.payload;
     },
+    stop: (state) => {
+      state.stop = !state.stop;
+    },
   },
 });
 
-export const { volume, resetVolume, play, setTime } =
-  controllerAudioStream.actions;
+export const { volume, play, setTime, stop } = controllerAudioStream.actions;
 
 export default controllerAudioStream.reducer;

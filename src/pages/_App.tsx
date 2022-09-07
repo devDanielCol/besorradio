@@ -10,15 +10,10 @@ import { IThemeControls } from "../redux/reducers/theme";
 import Footer from "../layout/Footer";
 import NotFound404Page from "./404";
 import SignIn from "../components/LogIn/Atoms/Login";
-import { IControls } from "../redux/reducers/controlls";
-import AudioStreaming from "../streaming/audio/source/AudioStreaming";
+import AudioStreaming from "../components/Streaming/Audio";
 
 interface ISelector {
   controllerTheme: IThemeControls;
-}
-
-interface ISelector {
-  controllerAudioStream: IControls;
 }
 
 const App = () => {
@@ -29,9 +24,6 @@ const App = () => {
     dark: darkThemeOption,
     light: lightThemeOptions,
   }[mode];
-
-  console.log("se cargo la pagina");
-  console.log(process.env.REACT_APP_STREAMING);
 
   const theme = createTheme(themes);
 

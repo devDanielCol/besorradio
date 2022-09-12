@@ -19,7 +19,7 @@ const navigationItems = [
   {
     name: "Programas",
     icon: <CategoryIcon />,
-    url: "/#programs",
+    url: "/programs",
   },
   {
     name: "Emision en directo",
@@ -87,7 +87,7 @@ const Menubar = () => {
               position: "sticky",
               top: 0,
               zIndex: 2,
-              backgroundColor: palette.primary.main,
+              backgroundColor: palette.secondary.main,
               boxShadow: 2,
             }}
           >

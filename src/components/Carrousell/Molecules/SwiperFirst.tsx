@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, IconButton, SxProps, Typography } from "@mui/material";
+import { Box, Button, IconButton, SxProps, Typography } from "@mui/material";
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
 import PauseCircleIcon from "@mui/icons-material/PauseCircle";
 import { useSelector, useDispatch } from "react-redux";
@@ -34,6 +34,7 @@ const SwiperFirst = () => {
     <Box
       sx={{
         height: { md: 400, xs: 200 },
+        position: "relative",
       }}
       p={3}
       pl={{ xs: 6, md: 15 }}
@@ -67,6 +68,21 @@ const SwiperFirst = () => {
           )}
         </IconButton>
       </Box>
+      {paused && (
+        <Button
+          color="error"
+          variant="contained"
+          sx={{
+            borderRadius: 2,
+            position: "absolute",
+            top: 7,
+            right: 7,
+            textTransform: "capitalize",
+          }}
+        >
+          OnAir
+        </Button>
+      )}
     </Box>
   );
 };

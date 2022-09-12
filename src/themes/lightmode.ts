@@ -5,11 +5,11 @@ const lightThemeOption: ThemeOptions = {
     mode: "light",
     primary: {
       main: "#FFFFFF",
-      dark: "#1E1938",
+      dark: "#261B61",
       light: "#B3C8DF",
     },
     secondary: {
-      main: "#75ACFF",
+      main: "#47A5FF",
       light: "#7CD0C8",
     },
     info: {
@@ -22,12 +22,12 @@ const lightThemeOption: ThemeOptions = {
       dark: "#FF7A00",
     },
     success: {
-      main: "#B3DCEA",
+      main: "#B3EAC6",
       dark: "#0FD960",
     },
     common: {
       white: "#FFFFFF",
-      black: "#000000",
+      black: "#201919",
     },
   },
 };

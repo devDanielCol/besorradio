@@ -7,8 +7,16 @@ import { Parallax, Pagination, Navigation } from "swiper";
 import { Box } from "@mui/material";
 import SwiperFirst from "../Molecules/SwiperFirst";
 import SwiperSecond from "../Molecules/SwiperSecond";
+import { useTheme } from "@mui/material/styles";
 
 const Carrousell = () => {
+  const theme = useTheme();
+
+  const src =
+    theme.palette.mode === "dark"
+      ? "assets/images/studio.jpg"
+      : "assets/images/master.jpg";
+
   return (
     <>
       <Swiper
@@ -30,7 +38,7 @@ const Carrousell = () => {
             height: "100%",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundImage: "url(assets/images/studio.jpg)",
+            backgroundImage: `url(${src})`,
           }}
           data-swiper-parallax="-23%"
         ></Box>

@@ -14,6 +14,7 @@ import SocialNetAccordion from "../Molecules/SocialNetAccordion";
 import ThemeControl from "../Molecules/ThemeControl";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+import gradients from "../../../utils/colors/gradients";
 
 const navigationItems = [
   {
@@ -87,7 +88,7 @@ const Menubar = () => {
               position: "sticky",
               top: 0,
               zIndex: 2,
-              backgroundColor: palette.primary.main,
+              backgroundImage: gradients.blueLightBlue,
               boxShadow: 2,
             }}
           >

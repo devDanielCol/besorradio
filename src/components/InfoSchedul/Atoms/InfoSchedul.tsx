@@ -1,19 +1,21 @@
 import * as React from "react";
 import { Container, Box } from "@mui/system";
 import { Typography } from "@mui/material";
+import GradientText from "../../Contact/BannerTop/Atoms/GradientText";
+import gradients from "../../../utils/colors/gradients";
 
 const Schedules = () => {
   return (
     <Box sx={{ pt: { xs: 4, md: 10 } }}>
       <Container>
         <Box display="flex" alignItems="center" justifyContent="center">
-          <Typography
-            mr={1}
-            fontSize={{ xs: "1.5rem", md: "4rem" }}
-            color="secondary"
-            fontWeight={700}
-          >
-            24H
+          <Typography component="span" sx={{ mr: 1 }}>
+            <GradientText
+              legend="24h"
+              fontSize={{ xs: "1.5rem", md: "4rem" }}
+              animation="none"
+              gradient={gradients.blueLightBlue}
+            />
           </Typography>
           <Typography fontSize={{ xs: "1.5rem", md: "3rem" }}>
             de transmision

@@ -4,7 +4,7 @@ const darkThemeOption: ThemeOptions = {
   palette: {
     mode: "dark",
     primary: {
-      main: "#5C53CF",
+      main: "#red",
       dark: "#1E1938",
       light: "#B3C8DF",
     },
@@ -28,6 +28,10 @@ const darkThemeOption: ThemeOptions = {
     common: {
       white: "#FFFFFF",
       black: "#000000",
+    },
+    background: {
+      default: "#000",
+      paper: "#111",
     },
   },
 };

@@ -6,8 +6,6 @@ import MenubarOption from "../Molecules/MenubarOption";
 import MusicPlayerSlider from "../../AudioPlayer/Atoms/Player";
 import Account from "../Molecules/Account";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import OnlinePredictionIcon from "@mui/icons-material/OnlinePrediction";
-import CategoryIcon from "@mui/icons-material/Category";
 
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 import SocialNetAccordion from "../Molecules/SocialNetAccordion";
@@ -16,16 +14,6 @@ import { useNavigate } from "react-router-dom";
 import gradients from "../../../utils/colors/gradients";
 
 const navigationItems = [
-  // {
-  //   name: "Programas",
-  //   icon: <CategoryIcon />,
-  //   url: "/#programs",
-  // },
-  // {
-  //   name: "Emision en directo",
-  //   icon: <OnlinePredictionIcon />,
-  //   url: "/radio/streaming",
-  // },
   {
     name: "Contacto",
     icon: <ContactPageIcon />,

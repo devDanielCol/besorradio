@@ -1,10 +1,12 @@
 import * as React from "react";
 import { Box, Grow, Typography } from "@mui/material";
-import { Container } from "@mui/system";
+import { Container, useTheme } from "@mui/system";
 import gradients from "../../../utils/colors/gradients";
 import GradientText from "../Atoms/GradientText";
 
 const BannerContact = () => {
+  const theme = useTheme();
+
   return (
     <Container maxWidth={"xl"} sx={{ overflow: "hidden" }}>
       <Box
@@ -69,7 +71,10 @@ const BannerContact = () => {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             filter: {
-              xs: "blur(7px) brightness(40%)",
+              xs:
+                theme.palette.mode === "light"
+                  ? "blur(7px) brightness(300%)"
+                  : "blur(7px) brightness(40%)",
               lg: "blur(0px)",
             },
             backgroundImage: `url(${"/assets/images/others.png"})`,

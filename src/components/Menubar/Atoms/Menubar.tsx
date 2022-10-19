@@ -12,21 +12,20 @@ import CategoryIcon from "@mui/icons-material/Category";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 import SocialNetAccordion from "../Molecules/SocialNetAccordion";
 import ThemeControl from "../Molecules/ThemeControl";
-import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import gradients from "../../../utils/colors/gradients";
 
 const navigationItems = [
-  {
-    name: "Programas",
-    icon: <CategoryIcon />,
-    url: "/#programs",
-  },
-  {
-    name: "Emision en directo",
-    icon: <OnlinePredictionIcon />,
-    url: "/radio/streaming",
-  },
+  // {
+  //   name: "Programas",
+  //   icon: <CategoryIcon />,
+  //   url: "/#programs",
+  // },
+  // {
+  //   name: "Emision en directo",
+  //   icon: <OnlinePredictionIcon />,
+  //   url: "/radio/streaming",
+  // },
   {
     name: "Contacto",
     icon: <ContactPageIcon />,
@@ -36,8 +35,6 @@ const navigationItems = [
 
 const Menubar = () => {
   const [open, setOpen] = React.useState<boolean>(false);
-  const theme = useTheme();
-  const palette = theme.palette;
   const navigator = useNavigate();
 
   const handleOpenBar = () => {

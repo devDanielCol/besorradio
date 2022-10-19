@@ -5,6 +5,8 @@ import { Box } from "@mui/system";
 import Legend from "../Molecules/Legend";
 import Menubar from "../../Menubar/Atoms/Menubar";
 import { useScrollTrigger, Slide } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import gradients from "../../../utils/colors/gradients";
 
 interface Props {
   window?: () => Window;
@@ -25,10 +27,21 @@ function HideOnScroll(props: Props) {
 }
 
 const Navbar = (props: Props) => {
+  const theme = useTheme();
+  const mode = theme.palette.mode;
   return (
     <>
       <HideOnScroll {...props}>
-        <AppBar position="sticky" sx={{ top: 0, minWidth: 375 }}>
+        <AppBar
+          position="sticky"
+          sx={{
+            top: 0,
+            minWidth: 375,
+            backgroundColor: "background.default",
+            backgroundImage:
+              mode === "light" ? gradients.whiteLight : gradients.blackDark,
+          }}
+        >
           <Toolbar disableGutters>
             <Box
               width={"100%"}

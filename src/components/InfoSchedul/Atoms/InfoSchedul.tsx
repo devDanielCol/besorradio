@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Container, Box } from "@mui/system";
 import { Typography } from "@mui/material";
-import GradientText from "../../Contact/BannerTop/Atoms/GradientText";
+import GradientText from "../../Contact/Atoms/GradientText";
 import gradients from "../../../utils/colors/gradients";
 
 const Schedules = () => {

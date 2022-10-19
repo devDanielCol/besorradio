@@ -1,8 +1,8 @@
 import * as React from "react";
 import { styled } from "@mui/system";
 import { FC } from "react";
-import gradientBackground from "../../../../utils/colors/gradients";
-import { animationOpacity } from "../../../../utils/animation/keyframes";
+import gradients from "../../../utils/colors/gradients";
+import { animationOpacity } from "../../../utils/animation/keyframes";
 
 interface IProps {
   fontSize: number | string | string[] | number[] | object;
@@ -42,7 +42,7 @@ const GradientText: FC<IProps> = ({
   const Title = styled("span")({
     backgroundClip: "text",
     color: "transparent",
-    backgroundImage: gradient || gradientBackground.orangeYellow,
+    backgroundImage: gradient || gradients.orangeYellow,
     fontFamily:
       "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
     animation: `${animation || "primary"} 8s infinite`,

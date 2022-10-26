@@ -4,30 +4,28 @@ const lightThemeOption: ThemeOptions = {
   palette: {
     mode: "light",
     primary: {
-      main: "#FFFFFF",
-      dark: "#261B61",
-      light: "#B3C8DF",
+      main: "#AAC4FF",
+      light: "#00dfd8",
     },
     secondary: {
-      main: "#47A5FF",
-      light: "#7CD0C8",
+      main: "#ff4d4d",
+      light: "#f9cb28",
     },
     info: {
       main: "#B8C7FF",
-      dark: "#1E1938",
       light: "#7B78ED",
     },
     warning: {
       main: "#FEC201",
-      dark: "#FF7A00",
+      light: "#FF7A00",
     },
     success: {
-      main: "#B3EAC6",
-      dark: "#0FD960",
+      main: "#B3DCEA",
+      light: "#0FD960",
     },
     common: {
       white: "#FFFFFF",
-      black: "#201919",
+      black: "#000",
     },
   },
 };

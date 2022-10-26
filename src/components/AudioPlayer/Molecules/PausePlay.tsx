@@ -40,7 +40,7 @@ const PausePlay = () => {
         <IconButton
           aria-label={paused ? "play" : "pause"}
           onClick={() => {
-            dispatch(onPlay());
+            void dispatch(onPlay());
           }}
         >
           {paused ? (
@@ -57,8 +57,8 @@ const PausePlay = () => {
         </IconButton>
         <IconButton
           onClick={() => {
-            dispatch(stop());
-            dispatch(onPlay());
+            void dispatch(stop());
+            void dispatch(onPlay());
           }}
           aria-label="stop streaming"
         >

@@ -38,7 +38,8 @@ const Carrousell = () => {
             height: "100%",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundImage: `url(${src})`,
+            backgroundImage: "url(assets/images/microphone.jpg)",
+            filter: "brightness(50%)",
           }}
           data-swiper-parallax="-23%"
         ></Box>

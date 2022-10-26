@@ -1,53 +1,67 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true
-    },
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:react-hooks/recommended",
-      "prettier",
-      "plugin:prettier/recommended",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "project": "./tsconfig.json"
-    },
-    "overrides": [
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react-hooks/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "parserOptions": {
+        "project": [
+          "./tsconfig.json"
+        ]
+      }
+    }
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "react-hooks"
+  ],
+  "rules": {
+    "linebreak-style": "off",
+    "no-use-before-define": "off",
+    "no-sparse-arrays": "error",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "no-duplicate-imports": "error",
+    "no-underscore-dangle": [
+      "error",
       {
-        "files": ["*.ts", "*.tsx"],
-        "extends": [
-          "plugin:@typescript-eslint/recommended",
-          "plugin:@typescript-eslint/recommended-requiring-type-checking"
-        ],
-  
-        "parserOptions": {
-          "project": ["./tsconfig.json"]
-        }
+        "allow": [
+          "__isRetryRequest",
+          "_id"
+        ]
       }
     ],
-    "plugins": ["react", "@typescript-eslint", "react-hooks"],
-    "rules": {
-      "linebreak-style": "off",
-      "no-use-before-define": "off",
-      "no-sparse-arrays": "error",
-      "import/prefer-default-export": "off",
-      "@typescript-eslint/no-use-before-define": "off",
-      "no-duplicate-imports": "error",
-      "no-underscore-dangle": ["error", { "allow": ["__isRetryRequest", "_id"] }],
-      "react/require-default-props": "off",
-      "react-hooks/exhaustive-deps": "warn",
-      "import/no-cycle": "off",
-      "prettier/prettier": [
-        "error",
-        {
-          "endOfLine": "auto"
-        }
-      ],
-      "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/no-unsafe-call": "warn"
-    }
+    "react/require-default-props": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/no-cycle": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unsafe-call": "warn"
   }
+}

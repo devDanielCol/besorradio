@@ -39,6 +39,7 @@ export const controllerAudioStream = createSlice({
     },
     stop: (state) => {
       state.play = false;
+      state.loading = false;
       state.stop = !state.stop;
       Howler.stop();
     },

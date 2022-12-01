@@ -5,7 +5,7 @@ const initVol = Number(getLocalStorage("volume"));
 const StreamingAudio = new Howl({
   src: [config.radio.source || ""],
   html5: true,
-  volume: initVol,
+  volume: initVol > 0 ? initVol : 50,
   format: "streaming",
 });
 export default StreamingAudio;

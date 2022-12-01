@@ -28,14 +28,12 @@ const UseAudioCtrl = () => {
   });
   StreamingAudio.on("stop", () => {
     setPlay(false);
-    initLoading(false);
   });
   const playHandler = () => {
     initLoading(true);
     void dispatch(onPlay());
   };
   const stopHandler = () => {
-    initLoading(true);
     void dispatch(stop());
   };
 

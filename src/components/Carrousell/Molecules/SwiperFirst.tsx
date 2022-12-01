@@ -2,11 +2,8 @@ import * as React from "react";
 import { Box, Button, IconButton, SxProps, Typography } from "@mui/material";
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
 import PauseCircleIcon from "@mui/icons-material/PauseCircle";
-import { useSelector, useDispatch } from "react-redux";
-import { IControls, play } from "../../../redux/reducers/controlls";
-interface ISelector {
-  controllerAudioStream: IControls;
-}
+import CircularProgress from "@mui/material/CircularProgress";
+import UseAudioCtrl from "../../../utils/hooks/AudioControl";
 
 const sxIcon: SxProps = {
   width: {
@@ -21,15 +18,7 @@ const sxIcon: SxProps = {
 };
 
 const SwiperFirst = () => {
-  const dispatch = useDispatch();
-  const paused: boolean = useSelector(
-    ({ controllerAudioStream }: ISelector) => controllerAudioStream.play
-  );
-
-  const playHandler = () => {
-    dispatch(play());
-  };
-
+  const { loading, play, playHandler } = UseAudioCtrl();
   return (
     <Box
       sx={{
@@ -60,15 +49,21 @@ const SwiperFirst = () => {
         </Typography>
       </Box>
       <Box display="flex" justifyContent="center" alignItems="center">
-        <IconButton onClick={playHandler}>
-          {paused ? (
-            <PauseCircleIcon sx={sxIcon} />
-          ) : (
-            <PlayCircleRoundedIcon sx={sxIcon} />
-          )}
-        </IconButton>
+        {loading ? (
+          <IconButton sx={sxIcon}>
+            <CircularProgress sx={sxIcon} />
+          </IconButton>
+        ) : (
+          <IconButton onClick={playHandler}>
+            {play ? (
+              <PauseCircleIcon sx={sxIcon} />
+            ) : (
+              <PlayCircleRoundedIcon sx={sxIcon} />
+            )}
+          </IconButton>
+        )}
       </Box>
-      {paused && (
+      {play && (
         <Button
           color="error"
           variant="contained"
@@ -86,5 +81,4 @@ const SwiperFirst = () => {
     </Box>
   );
 };
-
 export default SwiperFirst;

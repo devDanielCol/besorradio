@@ -34,6 +34,22 @@ const darkThemeOption: ThemeOptions = {
       paper: "#111",
     },
   },
+  components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundImage: "none",
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundImage: "none",
+        },
+      },
+    },
+  },
 };
 
 export default darkThemeOption;

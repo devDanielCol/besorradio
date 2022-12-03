@@ -5,6 +5,10 @@ import {
   User,
   signInWithEmailAndPassword,
   signOut,
+  getRedirectResult,
+  updateProfile,
+  sendEmailVerification,
+  updateEmail,
 } from "firebase/auth";
 import "../config";
 
@@ -42,14 +46,33 @@ function VerifyUserInSession(
 declare function Success(): void;
 declare function Fail(error: unknown): void;
 
-function SignOut(success: typeof Success, fail: typeof Fail) {
+function SignOut(success?: typeof Success, fail?: typeof Fail) {
   signOut(auth)
     .then(() => {
-      success();
+      success && success();
     })
     .catch((error) => {
-      fail(error);
+      fail && fail(error);
     });
+}
+
+function GetRedirectResult() {
+  return getRedirectResult(auth);
+}
+
+function UpdateProfileData(displayName: string, photoURL?: string) {
+  return updateProfile(auth.currentUser as User, {
+    displayName,
+    photoURL,
+  });
+}
+
+function UpdateEmail(email: string) {
+  return updateEmail(auth.currentUser as User, email);
+}
+
+function SendEmaiVerification() {
+  return sendEmailVerification(auth.currentUser as User);
 }
 
 export {
@@ -57,4 +80,8 @@ export {
   VerifyUserInSession,
   SignInWithEmailPassword,
   SignOut,
+  GetRedirectResult,
+  UpdateProfileData,
+  SendEmaiVerification,
+  UpdateEmail,
 };

@@ -28,6 +28,7 @@ const lightThemeOption: ThemeOptions = {
       black: "#000",
     },
   },
+  components: {},
 };
 
 export default lightThemeOption;

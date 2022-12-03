@@ -14,6 +14,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "crypto-js": "^4.1.1",
+    "firebase": "^9.14.0",
     "howler": "^2.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -30,7 +31,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "npx typesync"
   },
   "eslintConfig": {
     "extends": [
@@ -52,11 +54,11 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.1.1",
+    "@types/howler": "^2.2.7",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.56",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
-    "@types/howler": "^2.2.7",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.23.0",

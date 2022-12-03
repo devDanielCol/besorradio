@@ -4,7 +4,7 @@ const secretKey = process.env.REACT_APP_SECRET_KEY || "DEV-KEY";
 
 export const setLocalStorage = (
   key: string,
-  value: string | object | Array<object | string | number>
+  value: number | string | object | Array<object | string | number>
 ) => {
   const valueStringyfy = JSON.stringify(value);
   const valueEncrypt = crypto.AES.encrypt(valueStringyfy, secretKey).toString();

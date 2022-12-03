@@ -3,19 +3,11 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Avatar, Box, Typography } from "@mui/material";
 import stringToColor from "../../../utils/helpers/stringToColor";
 import { useNavigate } from "react-router-dom";
-
-interface IClientAccunt {
-  name: string;
-  profileImg: string | null;
-}
+import { VerifyUserInSession } from "../../../firebases/auth/auth";
+import { User } from "firebase/auth";
 
 const Account = () => {
-  const onSession = false;
-  const { name, profileImg }: IClientAccunt = {
-    name: "Daniel Cubillos",
-    profileImg:
-      "https://cdn.pixabay.com/photo/2022/08/13/09/05/lion-7383228_960_720.jpg",
-  };
+  const [userData, setuserData] = React.useState<User>();
 
   const navigate = useNavigate();
 
@@ -28,9 +20,20 @@ const Account = () => {
     };
   };
 
+  React.useEffect(() => {
+    void VerifyUserInSession(
+      (userData) => {
+        setuserData(userData);
+      },
+      () => {
+        setuserData(undefined);
+      }
+    );
+  }, []);
+
   return (
     <>
-      {onSession ? (
+      {userData ? (
         <Box
           onClick={() => {
             navigate("/profile");
@@ -41,12 +44,17 @@ const Account = () => {
           alignItems="center"
           sx={{ cursor: "pointer" }}
         >
-          {profileImg ? (
-            <Avatar src={profileImg} alt={name} />
+          {userData.photoURL ? (
+            <Avatar
+              src={userData.photoURL}
+              alt={userData.displayName || "Sin nombre"}
+            />
           ) : (
-            <Avatar {...AvatarProps(name)} />
+            <Avatar {...AvatarProps(userData.displayName || "Sin nombre")} />
           )}
-          <Typography ml={1}>{name}</Typography>
+          <Typography ml={1}>
+            {userData.displayName || userData.email}
+          </Typography>
         </Box>
       ) : (
         <Box

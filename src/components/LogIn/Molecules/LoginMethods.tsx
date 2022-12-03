@@ -98,10 +98,32 @@ const LoginMethods = () => {
                 py: 1.6,
                 color: "white",
                 fontWeight: 700,
+                borderRadius: "12px",
               }}
             >
               <AlternateEmailIcon sx={{ mr: 1 }} />
               Continuar con correo
+            </Button>
+          </Link>
+          <Link
+            to={"/register"}
+            style={{ textDecoration: "none", width: "100%" }}
+          >
+            <Button
+              component="div"
+              variant="outlined"
+              sx={{
+                textDecoration: "none",
+                mt: 2,
+                textTransform: "initial",
+                width: "100%",
+                fontSize: "1rem",
+                borderRadius: "12px",
+                py: 1.6,
+                fontWeight: 700,
+              }}
+            >
+              Registrare
             </Button>
           </Link>
           <Divider sx={{ width: "100%", my: 3, textAlign: "center" }} />

@@ -17,6 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import DialogError from "./DialogError";
 import { setLocalStorage } from "../../../utils/helpers/storagEncrypt";
+import { correctEmail } from "../../../utils/helpers/RegexVerify";
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ export default function SignIn() {
       termsconditions: data.get("termsconditions") as unknown as boolean,
     };
 
-    if (email && password && termsconditions) {
+    if (correctEmail(email) && password && termsconditions) {
       setLoading(true);
       void SignInWithEmailPassword({ email, password })
         .then((data) => {
@@ -57,6 +58,14 @@ export default function SignIn() {
             button: "Entendido",
           });
         });
+    } else {
+      setLoginError({
+        title: "Completa los datos de inicio",
+        content:
+          "Antes de continuar, es necesario que llenes todos los campos.",
+        open: true,
+        button: "Entendido",
+      });
     }
   };
 
@@ -100,7 +109,7 @@ export default function SignIn() {
         elevation={3}
       >
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h4">
             Inicia sesion
           </Typography>
         </Box>

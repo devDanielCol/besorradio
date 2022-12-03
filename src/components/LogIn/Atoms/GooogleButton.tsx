@@ -63,6 +63,7 @@ const GoogleButton = () => {
           backgroundImage: gradients.orangeYellow,
           color: "white",
           fontWeight: 700,
+          borderRadius: "12px",
         }}
         onClick={handlerSinginRedirect}
       >

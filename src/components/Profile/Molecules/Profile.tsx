@@ -21,6 +21,8 @@ import {
   SendEmaiVerification,
   UpdateEmail,
 } from "../../../firebases/auth/auth";
+import { GetUserData } from "../../../firebases/db/auth/user";
+import { correctEmail } from "../../../utils/helpers/RegexVerify";
 import Account from "../../Menubar/Molecules/Account";
 
 const Profile = () => {
@@ -68,10 +70,7 @@ const Profile = () => {
         });
     }
 
-    const emailRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-
-    if (email && email !== userData?.email && emailRegex.test(email)) {
+    if (email && email !== userData?.email && correctEmail(email)) {
       void UpdateEmail(email).then((e) => {
         console.log(e, "email actualizado correctamente");
       });
@@ -89,6 +88,12 @@ const Profile = () => {
       alert("Este email se acabo de enviar");
     }
   };
+
+  void GetUserData(userData?.uid as string).then((snapshot) => {
+    if (snapshot.exists()) {
+      console.log(snapshot.val());
+    }
+  });
 
   return userData ? (
     <Container maxWidth="xl" sx={{ minHeight: "50vh" }}>
